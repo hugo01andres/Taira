@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- Top Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand" href="/">
@@ -49,9 +49,10 @@
     <!-- Sidebar Overlay (mobile) -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     
-    <!-- Sidebar -->
-    <nav class="sidebar" id="sidebar">
-        <div class="p-3">
+    <!-- Main Wrapper -->
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
             {% if request.session.get("user") %}
                 <!-- User info (mobile) -->
                 <div class="d-lg-none mb-3 p-2 bg-light rounded">
@@ -109,28 +110,12 @@
                     </li>
                 </ul>
             {% endif %}
-        </div>
-    </nav>
-    
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Sidebar Column -->
-                <div class="col-lg-2 d-none d-lg-block p-0">
-                    <!-- Sidebar is positioned above -->
-                </div>
-                
-                <!-- Content Column -->
-                <div class="col-lg-10 offset-lg-2">
-                    <div class="p-4">
-                        
-                        <!-- Page Content -->
-                        {% block content %}{% endblock %}
-                    </div>
-                </div>
-            </div>
-        </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
     </div>
     
     <!-- Footer -->

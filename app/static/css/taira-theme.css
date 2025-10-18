@@ -509,3 +509,233 @@ footer {
   cursor: not-allowed;
   transform: none !important;
 }
+
+/* Lead Card Action Buttons */
+.lead-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-action:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-action i {
+  font-size: 1rem;
+  width: 16px;
+  text-align: center;
+}
+
+/* Regenerate Button */
+.btn-regenerate {
+  background: linear-gradient(135deg, var(--picton-blue) 0%, var(--pale-azure) 100%);
+  color: var(--indigo-dye);
+  border: 1px solid var(--pale-azure);
+  box-shadow: 0 2px 8px rgba(89, 165, 216, 0.2);
+}
+
+.btn-regenerate:hover {
+  background: linear-gradient(135deg, var(--pale-azure) 0%, var(--non-photo-blue) 100%);
+  color: var(--indigo-dye);
+  box-shadow: 0 6px 16px rgba(89, 165, 216, 0.3);
+}
+
+.btn-regenerate i {
+  color: var(--indigo-dye);
+}
+
+/* Edit Button */
+.btn-edit {
+  background: linear-gradient(135deg, var(--bice-blue) 0%, var(--picton-blue) 100%);
+  color: white;
+  border: 1px solid var(--picton-blue);
+  box-shadow: 0 2px 8px rgba(56, 111, 164, 0.2);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, var(--picton-blue) 0%, var(--pale-azure) 100%);
+  color: white;
+  box-shadow: 0 6px 16px rgba(56, 111, 164, 0.3);
+}
+
+.btn-edit i {
+  color: white;
+}
+
+/* Delete Button */
+.btn-delete {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  color: white;
+  border: 1px solid #dc2626;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+  color: white;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
+}
+
+.btn-delete i {
+  color: white;
+}
+
+/* AI Generated Badge */
+.badge-ai {
+  background: linear-gradient(135deg, var(--pale-azure) 0%, var(--non-photo-blue) 100%);
+  color: var(--indigo-dye);
+  border: 1px solid var(--pale-azure);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(132, 210, 246, 0.2);
+}
+
+/* Lead Card Styling */
+.lead-card {
+  background: linear-gradient(135deg, var(--taira-white) 0%, var(--pale-azure) 100%);
+  border: 1px solid var(--pale-azure);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(19, 60, 85, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lead-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--indigo-dye) 0%, var(--bice-blue) 50%, var(--picton-blue) 100%);
+}
+
+.lead-card:hover {
+  box-shadow: 0 8px 24px rgba(19, 60, 85, 0.15);
+  transform: translateY(-2px);
+}
+
+.lead-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--indigo-dye);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.lead-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.lead-company {
+  color: var(--bice-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(56, 111, 164, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* AI Message Styling */
+.ai-message {
+  background: linear-gradient(135deg, var(--pale-azure) 0%, var(--non-photo-blue) 100%);
+  border: 1px solid var(--pale-azure);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  font-style: italic;
+  color: var(--indigo-dye);
+  position: relative;
+  box-shadow: 0 2px 8px rgba(132, 210, 246, 0.1);
+}
+
+.ai-message::before {
+  content: "🤖 ";
+  font-size: 1.2em;
+  margin-right: 4px;
+}
+
+/* Instructions Styling */
+.lead-instructions {
+  background: linear-gradient(135deg, var(--taira-bg-light) 0%, var(--pale-azure) 100%);
+  border: 1px solid var(--pale-azure);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: var(--bice-blue);
+  position: relative;
+}
+
+.lead-instructions::before {
+  content: "📝 ";
+  font-size: 1.1em;
+  margin-right: 4px;
+}
+
+/* Button Shine Effect */
+.btn-action::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-action:hover::before {
+  left: 100%;
+}
+
+/* Responsive Button Layout */
+@media (max-width: 768px) {
+  .lead-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .btn-action {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .lead-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

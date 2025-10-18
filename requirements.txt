@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+jinja2
+sqlmodel
+pydantic-settings
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+python-multipart
+python-jose[cryptography]
+itsdangerous
+requests
+boto3
+botocore
+python-dotenv

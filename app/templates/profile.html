@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Profile Settings - Taira{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">
+        <i class="bi bi-person-gear me-2"></i>Profile Settings
+    </h1>
+    <a href="/dashboard" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-2"></i>Back to Dashboard
+    </a>
+</div>
+
+{% if request.query_params.get('updated') %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>
+        <strong>Success!</strong> Your profile has been updated successfully.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+{% endif %}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-building me-2"></i>Company Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/profile">
+                    <div class="mb-3">
+                        <label for="company_name" class="form-label">Your Company Name</label>
+                        <input type="text" class="form-control" id="company_name" name="company_name" 
+                               value="{{ user.company_name or '' }}" 
+                               placeholder="Enter your company name (e.g., Tech Solutions Inc.)">
+                        <div class="form-text">
+                            This will be used by AI to generate personalized outreach messages.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company_website" class="form-label">Company Website (Optional)</label>
+                        <input type="url" class="form-control" id="company_website" name="company_website" 
+                               value="{{ user.company_website or '' }}" 
+                               placeholder="https://yourcompany.com">
+                        <div class="form-text">
+                            Your company website for reference in AI-generated messages.
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save me-2"></i>Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-info-circle me-2"></i>AI Context
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <strong>Current AI Context:</strong>
+                </p>
+                {% if user.company_name %}
+                    <div class="alert alert-info">
+                        <i class="bi bi-building me-2"></i>
+                        <strong>Company:</strong> {{ user.company_name }}
+                        {% if user.company_website %}
+                            <br><strong>Website:</strong> 
+                            <a href="{{ user.company_website }}" target="_blank" class="text-decoration-none">
+                                {{ user.company_website }} <i class="bi bi-box-arrow-up-right"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <p class="text-success">
+                        <i class="bi bi-check-circle me-2"></i>
+                        AI will use this information to generate personalized outreach messages.
+                    </p>
+                {% else %}
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        <strong>No company information set.</strong><br>
+                        AI messages will be generic without your company context.
+                    </div>
+                    <p class="text-muted">
+                        Fill in your company details above to get personalized AI messages.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-person me-2"></i>Account Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-2">
+                    <strong>Email:</strong> {{ user.email }}
+                </p>
+                <p class="mb-2">
+                    <strong>Member since:</strong> {{ user.created_at.strftime('%B %d, %Y') }}
+                </p>
+                <p class="mb-0">
+                    <strong>Status:</strong> 
+                    <span class="badge bg-success">Active</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-lightbulb me-2"></i>How AI Uses Your Company Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="bi bi-arrow-right me-2"></i>Personalized Messages</h6>
+                        <p class="text-muted">
+                            AI will mention your company name in outreach messages, making them more professional and credible.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="bi bi-arrow-right me-2"></i>Better Context</h6>
+                        <p class="text-muted">
+                            Messages will be tailored to your company's services and expertise, improving response rates.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="bi bi-arrow-right me-2"></i>Professional Tone</h6>
+                        <p class="text-muted">
+                            AI will use your company information to create more authoritative and trustworthy messages.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="bi bi-arrow-right me-2"></i>Consistent Branding</h6>
+                        <p class="text-muted">
+                            All generated messages will consistently represent your company's identity and values.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Company - Taira{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="bi bi-building me-2"></i>Edit Company</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/companies/{{ company.id }}/edit">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Company Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" 
+                               value="{{ company.name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="website" class="form-label">Website</label>
+                        <input type="url" class="form-control" id="website" name="website" 
+                               value="{{ company.website or '' }}" placeholder="https://example.com">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="/companies" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Back to Companies
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg me-2"></i>Update Company
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
